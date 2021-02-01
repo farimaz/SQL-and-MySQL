@@ -1,0 +1,104 @@
+<<SQL Language>>
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+
+
+SELECT column1, column2, ...
+FROM table_name
+WHERE NOT condition;
+
+
+SELECT * (select all the tables)
+
+
+SELECT DISTINCT column1, column2, ...( select only distinct value not duplicated)
+
+
+SELECT column1, column2, ...
+FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;(sort value in ascending or descending)
+
+
+INSERT INTO table_name (column1, column2, column3, ...)
+VALUES (value1, value2, value3, ...);
+
+
+UPDATE table_name
+SET column1 = value1, column2 = value2, ...
+WHERE condition;
+
+
+DELETE FROM table_name WHERE condition;(delete row(condition))
+
+DELETE FROM table_name;(delete all the table) 
+
+
+SELECT TOP number(SQL Server)
+FROM table_name
+WHERE condition;
+
+
+SELECT column_name(s)(MySQL)
+FROM table_name
+WHERE condition
+LIMIT number;
+
+
+SELECT MIN(column_name)
+FROM table_name
+WHERE condition;
+
+
+SELECT MAX(column_name)
+FROM table_name
+WHERE condition;
+
+
+SELECT COUNT(column_name) (returns the number of rows)
+FROM table_name
+WHERE condition;
+
+
+SELECT AVG(column_name) (returns the average value of a numeric column)
+FROM table_name
+WHERE condition;
+
+
+SELECT SUM(column_name) (returns the total sum of a numeric column)
+FROM table_name
+WHERE condition;
+
+
+SELECT column_name(s)
+FROM table1
+INNER/LEFT/RIGHT/FULL JOIN table2 (combine rows from two or more tables)
+ON table1.column_name = table2.column_name;
+
+----------------------------------------------------------------------------------
+<<MYSQL Database>>
+
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="yourusername",
+  password="yourpassword",
+  database="mydatabase"
+)
+
+mycursor = mydb.cursor()
+
+sql = "SELECT * FROM customers ORDER BY name...."
+
+mycursor.execute(sql)
+
+myresult = mycursor.fetchall()-------> which fetches all rows from the last executed statement
+
+mydb.commit()---> It is required to make the changes
